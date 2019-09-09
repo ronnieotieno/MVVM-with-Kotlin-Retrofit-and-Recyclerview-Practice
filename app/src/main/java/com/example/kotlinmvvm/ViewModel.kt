@@ -17,7 +17,7 @@ class ViewModel : ViewModel() {
         }
     }
 
-    fun yes() {
+    fun fetchWeather() {
         val weather = WeatherRepository().weather(
             "37.0902",
             "-95.7129",

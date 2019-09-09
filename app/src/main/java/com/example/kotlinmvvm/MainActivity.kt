@@ -16,22 +16,23 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity(), ViewListener {
 
     lateinit var binding: ActivityMainBinding
+    lateinit var viewModel: ViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
         binding.viewmodel = viewModel
 
         viewModel.listener = this
 
-        viewModel.yes()
+        viewModel.fetchWeather()
     }
 
     override fun onSuccess(message: String) {
         toast(message)
-        binding.editt.text.clear()
+
 
     }
 
